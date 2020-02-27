@@ -32,19 +32,19 @@ steps:
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
 
-- task: DotNetCoreCLI@2
+- task: restore@2
   inputs:
     command: 'restore'
     projects: '**/Web/*.csproj'
     feedsToUse: 'select'
 
-- task: DotNetCoreCLI@2
+- task: build@2
   inputs:
     command: 'build'
     projects: '**/Web/*.csproj'
     arguments: '--configuration Release'
 
-- task: DotNetCoreCLI@2
+- task: publish@2
   inputs:
     command: publish
     publishWebProjects: True
@@ -55,3 +55,4 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+    
