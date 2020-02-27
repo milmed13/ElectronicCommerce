@@ -14,7 +14,7 @@ variables:
 
 steps:
 
-- task: UseDotNet@2
+- task: UseDotNet@1
   displayName: ".NET Core 3.1.x"
   inputs:
     version: '3.1.x'
@@ -22,35 +22,35 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-- task: NuGetToolInstaller@1
+- task: NuGetToolInstaller@2
   inputs:
     versionSpec: 
 
-- task: NuGetCommand@2
+- task: NuGetCommand@3
   inputs:
     command: 'restore'
     restoreSolution: '**/*.sln'
     feedsToUse: 'select'
 
-- task: restore@2
+- task: restore@4
   inputs:
     command: 'restore'
     projects: '**/Web/*.csproj'
     feedsToUse: 'select'
 
-- task: build@2
+- task: build@5
   inputs:
     command: 'build'
     projects: '**/Web/*.csproj'
     arguments: '--configuration Release'
 
-- task: publish@2
+- task: publish@6
   inputs:
     command: publish
     publishWebProjects: True
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: True
-- task: PublishBuildArtifacts@1
+- task: PublishBuildArtifacts@7
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
