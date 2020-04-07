@@ -17,4 +17,10 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\OrderDomain\OrderDomain.csproj" />
+    <ProjectReference Include="..\OrderApplication\OrderApplication.csproj" />
+  </ItemGroup>
+
 </Project>

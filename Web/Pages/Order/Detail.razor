@@ -1,0 +1,17 @@
+@using Web.Pages.Order.Components.OrderInfo;
+@page "/order/detail/{OrderId}";
+
+<OrderInfo OrderId=@intOrderId />
+
+@code {
+    [Parameter]
+    public string OrderId { get; set; }
+
+    public int intOrderId
+    {
+        get
+        {
+            return int.Parse(OrderId);
+        }
+    }
+}

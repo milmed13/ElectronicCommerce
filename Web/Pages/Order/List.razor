@@ -1,0 +1,9 @@
+@inherits ListBase
+@using Web.Pages.Order.Components.OrderCard
+@using DomainOrder = OrderDomain.Models.OrderAggregate
+@page "/order/list"
+
+@foreach (var order in Orders)
+{
+    <OrderCard Order=@order />
+}

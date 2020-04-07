@@ -1,0 +1,28 @@
+@inherits OrderInfoBase
+
+<h1>注文詳細</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>注文ID</th>
+            <th>注文番号</th>
+            <th>注文日時</th>
+            <th>郵便番号</th>
+            <th>都道府県</th>
+            <th>住所1</th>
+            <th>住所2</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@order.Id</td>
+            <td>@order.OrderNumber.Value</td>
+            <td>@order.OrderDate.ToLongDateString() @order.OrderDate.ToLongTimeString()</td>
+            <td>@order.Address.PostalCode</td>
+            <td>@order.Address.Prefecture</td>
+            <td>@order.Address.Address1</td>
+            <td>@order.Address.Address2</td>
+        </tr>
+    </tbody>
+</table>
